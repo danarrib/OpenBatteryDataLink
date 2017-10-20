@@ -17,7 +17,7 @@ The common way for a Flight Controller be aware of aircraft battery voltage is t
 
 For current monitoring, Flight Controller need another analog input to receive current sensor's voltage and translate it into a current measurement data (using a scale value that need to be calibrated).
 
-So Flight Controller needs two analog inputs just to (poorly) monitor one battery pack. Due no the increased complexity of onboard model aircraft electronics, this analog inputs are necessary to drive other sensors (like Airspeed), and free theses FC inputs are a good idea.
+So Flight Controller needs two analog inputs just to (poorly) monitor one battery pack. Due to the increased complexity of onboard model aircraft electronics, this analog inputs can be used to drive other sensors (like Airspeed), and free these FC inputs are a good idea.
 
 ## Battery Sensor Device
 The Battery sensor device must be connected to each cell to be able to properly monitor the battery pack. The simpliest version of sensor device can be done using only a "Pro Micro" (Arduino Compatible) board, witch is capable of monitor up to 8 cells and one current sensor (since it have 9 analog input pins). It have one dedicated UART connection, with will be used for communication with Flight Controller.
