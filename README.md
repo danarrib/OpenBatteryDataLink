@@ -13,11 +13,12 @@ Features:
 - Battery pack's instant and total current meter
 
 ## History
-The common way of a Flight Controller be aware of aircraft battery status is to wire a positive and a negative wire to a solder pad on the Flight Controller, witch is wired to a simple voltage divider and to an analog input of the microcontroller. Using this method, Flight Controller can only be aware of the total battery pack voltage, not individual cells voltage.
+The common way for a Flight Controller be aware of aircraft battery voltage is to wire a positive and a negative wire to a solder pad on the Flight Controller's board, witch is wired to a simple voltage divider and to an analog input of the microcontroller. Using this method, Flight Controller can only be aware of the total battery pack voltage, not individual cells voltage.
 
 For current monitoring, Flight Controller need another analog input to receive current sensor's voltage and translate it into a current measurement data (using a scale value that need to be calibrated).
 
 So Flight Controller needs two analog inputs just to (poorly) monitor one battery pack. Due no the increased complexity of onboard model aircraft electronics, this analog inputs are necessary to drive other sensors (like Airspeed), and free theses FC inputs are a good idea.
 
 ## Battery Sensor Device
-The Battery sensor device is responsible to 
+The Battery sensor device must be connected to each cell to be able to properly monitor the battery pack. The simpliest version of sensor device can be done using only a "Pro Micro" (Arduino Compatible) board, witch is capable of monitor up to 8 cells and one current sensor (since it have 9 analog input pins). It have one dedicated UART connection, with will be used for communication with Flight Controller.
+
