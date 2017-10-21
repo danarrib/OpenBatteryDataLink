@@ -22,4 +22,4 @@ For current monitoring, Flight Controller need another analog input to receive c
 So Flight Controller needs two analog inputs just to (poorly) monitor one battery pack. Due to the increased complexity of onboard model aircraft electronics, this analog inputs can be used to drive other sensors (like Airspeed), and free these FC inputs are a good idea.
 
 ## Integrated Flight Controllers
-For now, only InavFlight will be integrated. But since this protocol is open, anyone can implement it on other autopilot systems.
+For now, only [InavFlight](https://github.com/iNavFlight/inav) will be integrated. But since this protocol is open, anyone can implement it on other autopilot systems.
