@@ -19,14 +19,15 @@ int thisBatteryCellCount = 0;
 int thisBatteryNumber = 0;
 float thisBatterymAhUsed = 0;
 float thisBatteryAmpsDraw = 0;
-bool lockCellCount = false;
 unsigned long prevBattetyPoolingMilis = 0;
 unsigned long prevSendDataMilis = 0;
+unsigned long prevSendVersionMilis = 0;
 
 // Pool time for battery information
 const long batteryPoolingInterval = 500;
 const long sendDataInterval = 100;
 const long cellCountLockTimeout = 5 * 1000; // 5 seconds
+const long sendVersionInfoInterval = 10 * 1000; // 10 seconds
 
 // 12-byte data package
 typedef struct {
@@ -50,6 +51,11 @@ void setup() {
 void loop() {
   unsigned long currentMillis = millis();
 
+  if (currentMillis - prevSendVersionMilis >= sendVersionInfoInterval) {
+    prevSendVersionMilis = currentMillis;
+    send_protocol_version_info();
+  }
+  
   if (currentMillis - prevBattetyPoolingMilis >= batteryPoolingInterval) {
     prevBattetyPoolingMilis = currentMillis;
     getCellCount();
@@ -220,5 +226,11 @@ void send_data_packet(BatteryPackInformation thisPack){
   Serial1.write((uint8_t *)&thisPack, sizeof(thisPack));
   Serial1.write('E');
   return;
+}
+
+void send_protocol_version_info() {
+  Serial1.write("VER");
+  Serial1.write("0001"); // Version Number
+  Serial1.write("E");
 }
 
