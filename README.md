@@ -15,7 +15,7 @@ Features:
 Check the [Wiki](https://github.com/danarrib/OpenBatteryDataLink/wiki) for Full feature list, Battery sensor schematics and OBDL Protocol definition and Sample Implementations.
 
 ## History
-The common way for a Flight Controller be aware of aircraft battery voltage is to wire a positive and a negative wire to a solder pad on the Flight Controller's board, witch is wired to a simple voltage divider and to an analog input of the microcontroller. Using this method, Flight Controller can only be aware of the total battery pack voltage, not individual cells voltage.
+The common way for a Flight Controller be aware of aircraft battery voltage is to wire a positive and a negative wire to a solder pad on the Flight Controller's board, which is wired to a simple voltage divider and to an analog input of the microcontroller. Using this method, Flight Controller can only be aware of the total battery pack voltage, not individual cells voltage.
 
 For current monitoring, Flight Controller need another analog input to receive current sensor's voltage and translate it into a current measurement data (using a scale value that need to be calibrated).
 
